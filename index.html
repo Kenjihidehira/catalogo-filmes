@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Filmes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <strong>CineBox</strong>
+      <span>Catálogo JS</span>
+    </nav>
+
+    <section class="hero">
+      <p class="eyebrow">Projeto Front-end</p>
+      <h1>Encontre seu próximo filme</h1>
+      <p>Busque, filtre por gênero, ordene por nota e salve favoritos direto no navegador.</p>
+    </section>
+  </header>
+
+  <main class="container">
+    <section class="toolbar" aria-label="Filtros do catálogo">
+      <input id="searchInput" type="search" placeholder="Buscar por nome, diretor ou ano..." />
+
+      <select id="genreSelect">
+        <option value="all">Todos os gêneros</option>
+      </select>
+
+      <select id="sortSelect">
+        <option value="rating">Melhor nota</option>
+        <option value="year">Mais recentes</option>
+        <option value="title">A-Z</option>
+      </select>
+
+      <label class="favorite-toggle">
+        <input id="favoritesOnly" type="checkbox" />
+        Só favoritos
+      </label>
+    </section>
+
+    <section class="stats">
+      <article>
+        <span id="totalMovies">0</span>
+        <small>filmes encontrados</small>
+      </article>
+      <article>
+        <span id="averageRating">0.0</span>
+        <small>média das notas</small>
+      </article>
+      <article>
+        <span id="favoriteCount">0</span>
+        <small>favoritos salvos</small>
+      </article>
+    </section>
+
+    <section class="grid" id="movieGrid"></section>
+    <p class="empty hidden" id="emptyState">Nenhum filme encontrado com esses filtros.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
