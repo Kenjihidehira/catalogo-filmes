@@ -102,11 +102,15 @@ const averageRating = document.querySelector("#averageRating");
 const favoriteCount = document.querySelector("#favoriteCount");
 
 function getFavorites() {
-  return JSON.parse(localStorage.getItem("cinebox-favorites") || "[]");
+  return SafeStorage.read(
+    "cinebox-favorites",
+    [],
+    (value) => Array.isArray(value) && value.every(Number.isInteger)
+  );
 }
 
 function saveFavorites(ids) {
-  localStorage.setItem("cinebox-favorites", JSON.stringify(ids));
+  SafeStorage.write("cinebox-favorites", ids);
 }
 
 function setupGenres() {
